@@ -2,6 +2,7 @@ package com.sumitspace.android.popularmovies;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,12 +16,17 @@ import java.util.List;
 /**
  * Created by sumitmajumdar on 12/12/15.
  */
+interface ItemClickCallback {
+    public void onItemSelected(Movie movie);
+}
 public class MovieGridAdapter extends RecyclerView.Adapter<MovieViewHolder>{
     private Context context;
     private List<Movie> movieList;
-    MovieGridAdapter(Context context,List movieList){
+    private StartActivity activity;
+    MovieGridAdapter(Context context,List movieList, StartActivity activity){
         this.context = context;
         this.movieList = movieList;
+        this.activity = activity;
     }
     @Override
     public MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -53,11 +59,7 @@ public class MovieGridAdapter extends RecyclerView.Adapter<MovieViewHolder>{
             MovieViewHolder holder = (MovieViewHolder) v.getTag();
             int position = holder.getAdapterPosition();
             Movie movie = movieList.get(position);
-            Intent intent = new Intent(context, DetailActivity.class);
-            Bundle bundle = new Bundle();
-            bundle.putParcelable(Config.MOVIE_KEY, movie);
-            intent.putExtras(bundle);
-            context.startActivity(intent);
+            activity.onItemSelected(movie);
         }
     };
 }

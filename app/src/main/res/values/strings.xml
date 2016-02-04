@@ -1,8 +1,14 @@
 <resources>
+    <string name="share">Share</string>
     <string name="app_name">Popular Movies</string>
     <integer name="columns">2</integer>
     <string-array name="category">
         <item>Most Popular</item>
         <item>Highest rated</item>
+        <item>Your favorites</item>
     </string-array>
+    <string name="review_by">Review by %1$s</string>]
+    <string name="addFav">Favorite</string>
+    <string name="removeFav">Unfavorite</string>
+    <string name="movieDetail">Movie Details</string>
 </resources>

@@ -4,24 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.sumitspace.android.popularmovies.Start">
-    <Spinner
+    tools:context=".StartActivity">
+    <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/category"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="6dp"
-        android:layout_marginRight="6dp"
+        android:id="@+id/toolbar"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        android:elevation="4dp"
         />
-    <ProgressBar
+    <fragment
+        android:name="com.sumitspace.android.popularmovies.MasterFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/progress_bar"/>
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/movieGrid"
-        android:layout_gravity="center_horizontal"
+        android:layout_height="match_parent"
+        android:id="@+id/master"
         />
 </LinearLayout>
